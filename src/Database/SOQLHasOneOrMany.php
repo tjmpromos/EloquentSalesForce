@@ -367,9 +367,9 @@ abstract class SOQLHasOneOrMany extends Relation
 	 *
 	 * @return string
 	 */
-	public function getRelationCountHash()
+	public function getRelationCountHash($incrementJoinCount = true)
 	{
-		return 'laravel_reserved_' . static::$selfJoinCount++;
+		return 'laravel_reserved_' . ($incrementJoinCount ? self::$selfJoinCount++ : self::$selfJoinCount);
 	}
 
 	/**
